@@ -26,4 +26,4 @@ jobs:
       - name: Run tests
         uses: matlab-actions/run-command@v1
         with:
-          command: version, computer
+          command: version, computer, disp('hello world')

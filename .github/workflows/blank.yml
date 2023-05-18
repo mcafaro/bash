@@ -4,7 +4,7 @@ jobs:
   my-job:
     strategy:
       matrix:
-        platform: [ubuntu-latest, windows-latest, macos-latest]
+        platform: [windows-latest]
         release: [latest]
   
     name: Run MATLAB Build
@@ -12,12 +12,12 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
-      - name: Cache MATLAB
-        id: cache-matlab
-        uses: actions/cache@v3
-        with:
-          path: ${{ runner.tool_cache }}/MATLAB
-          key: ${{ matrix.platform }}-${{ matrix.release }}
+#       - name: Cache MATLAB
+#         id: cache-matlab
+#         uses: actions/cache@v3
+#         with:
+#           path: ${{ runner.tool_cache }}/MATLAB
+#           key: ${{ matrix.platform }}-${{ matrix.release }}
       - name: Setup MATLAB
         uses: matlab-actions/setup-matlab@v2-beta
         with:
@@ -27,3 +27,4 @@ jobs:
         uses: matlab-actions/run-command@v1
         with:
           command: version, computer, disp('hello world')
+          startup-options: -noFigureWindows

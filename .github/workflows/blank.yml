@@ -18,12 +18,13 @@ jobs:
 #         with:
 #           path: ${{ runner.tool_cache }}/MATLAB
 #           key: ${{ matrix.platform }}-${{ matrix.release }}
-      - name: Setup MATLAB
-        uses: matlab-actions/setup-matlab@v2
-        with:
-          release: ${{ matrix.release }}
-          products: MATLAB
+      # - name: Setup MATLAB
+      #   uses: matlab-actions/setup-matlab@v2
+      #   with:
+      #     release: ${{ matrix.release }}
+      #     products: MATLAB
+      - run: echo $PATH
       - name: Get run-matlab-command
-        run: wget -O /usr/bin/run-matlab-command https://ssd.mathworks.com/supportfiles/ci/run-matlab-command/v1/glnxa64/run-matlab-command
+        run: sudo wget -O /usr/bin/run-matlab-command https://ssd.mathworks.com/supportfiles/ci/run-matlab-command/v1/glnxa64/run-matlab-command
       - name: Run MATLAB Command
         run: run-matlab-command "disp('hello world')"

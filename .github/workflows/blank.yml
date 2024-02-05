@@ -8,6 +8,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup MATLAB
         uses: matlab-actions/setup-matlab@v2
+        with:
+          products: Optimization_Toolbox Statistics_and_Machine_Learning_Toolbox
       - name: Get run-matlab-command
         run: |
           wget -O /usr/local/bin/run-matlab-command https://ssd.mathworks.com/supportfiles/ci/run-matlab-command/v2/glnxa64/run-matlab-command

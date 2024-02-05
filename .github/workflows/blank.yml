@@ -8,7 +8,11 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup MATLAB
         uses: matlab-actions/setup-matlab@v2
+        with:
+          cache: true
       - name: Run tests
         uses: matlab-actions/run-tests@v2
         with:
-          startup-options: -sd subfolder 
+          startup-options: -sd subfolder
+          test-results-junit: myresults.xml
+      - run: ls *

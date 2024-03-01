@@ -9,10 +9,11 @@ jobs:
       - name: Setup MATLAB
         uses: matlab-actions/setup-matlab@v2
         with:
-          cache: false
+          cache: true
       - name: Run tests
         uses: matlab-actions/run-tests@v2
         with:
           startup-options: -sd subfolder
           test-results-junit: myresults.xml
+          use-parallel: true
       - run: ls *

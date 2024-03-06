@@ -10,17 +10,16 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup MATLAB
         uses: matlab-actions/setup-matlab@v2
+      - name: Run tests
+        uses: matlab-actions/run-tests@v2
         with:
-          release: R2022b
-          cache: true
-      # - name: Run tests
-      #   uses: matlab-actions/run-tests@v2
-      #   with:
-      #     startup-options: -sd subfolder
-      #     test-results-junit: myresults.xml
-      #     use-parallel: true
+          startup-options: -sd subfolder
+          test-results-junit: myresults.xml
+          use-parallel: true
       - name: Run command
         uses: matlab-actions/run-command@v2
         with:
           command: disp('hello world')
+      - name: Run build
+        uses: matlab-actions/run-build@v2
       - run: ls *

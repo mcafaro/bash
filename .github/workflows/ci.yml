@@ -18,6 +18,4 @@ jobs:
         run: |
           wget https://ssd.mathworks.com/supportfiles/ci/run-matlab-command/v2/maca64/run-matlab-command
           chmod +x run-matlab-command
-          ./run-matlab-command "disp('hello world')" &
-      - name: Setup upterm session
-        uses: lhotari/action-upterm@v1
+          ./run-matlab-command "disp('hello world')"

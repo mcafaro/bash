@@ -13,6 +13,7 @@ jobs:
         with:
           products: Simulink
           cache: true
+          release: latest-including-prerelease
       - name: Run command
         uses: matlab-actions/run-command@v2
         with:
